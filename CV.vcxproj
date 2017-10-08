@@ -18,20 +18,20 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <PlatformToolSet>v140</PlatformToolSet>
-    <OutputDirectory>x64\release\</OutputDirectory>
+    <OutputDirectory>release\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
     <CharacterSet>NotSet</CharacterSet>
     <ConfigurationType>Application</ConfigurationType>
-    <IntermediateDirectory>x64\release\</IntermediateDirectory>
+    <IntermediateDirectory>temp_release\</IntermediateDirectory>
     <PrimaryOutput>CV</PrimaryOutput>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <PlatformToolSet>v140</PlatformToolSet>
-    <OutputDirectory>x64\debug\</OutputDirectory>
+    <OutputDirectory>debug\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
     <CharacterSet>NotSet</CharacterSet>
     <ConfigurationType>Application</ConfigurationType>
-    <IntermediateDirectory>x64\debug\</IntermediateDirectory>
+    <IntermediateDirectory>temp_debug\</IntermediateDirectory>
     <PrimaryOutput>CV</PrimaryOutput>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -44,26 +44,28 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">x64\release\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">x64\release\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp_release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CV</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\debug\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\debug\</IntDir>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</PostBuildEventUseInBuild>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp_debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CV</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</IgnoreImportLibrary>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.;x64\release;D:\Qt\5.8\msvc2015_64\include;D:\Qt\5.8\msvc2015_64\include\QtCharts;D:\Qt\5.8\msvc2015_64\include\QtWidgets;D:\Qt\5.8\msvc2015_64\include\QtGui;D:\Qt\5.8\msvc2015_64\include\QtANGLE;D:\Qt\5.8\msvc2015_64\include\QtXml;D:\Qt\5.8\msvc2015_64\include\QtCore;x64\release;D:\Qt\5.8\msvc2015_64\mkspecs\win32-msvc2015;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;D:\PostGreSQL\include;temp_release;D:\Qt\5.8\msvc2015_64\include;D:\Qt\5.8\msvc2015_64\include\QtCharts;D:\Qt\5.8\msvc2015_64\include\QtWidgets;D:\Qt\5.8\msvc2015_64\include\QtGui;D:\Qt\5.8\msvc2015_64\include\QtANGLE;D:\Qt\5.8\msvc2015_64\include\QtXml;D:\Qt\5.8\msvc2015_64\include\QtCore;temp_release;D:\Qt\5.8\msvc2015_64\mkspecs\win32-msvc2015;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:strictStrings -Zc:throwingNew -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
-      <AssemblerListingLocation>x64\release\</AssemblerListingLocation>
+      <AssemblerListingLocation>temp_release\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
       <DebugInformationFormat>None</DebugInformationFormat>
       <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
-      <ObjectFileName>x64\release\</ObjectFileName>
+      <ObjectFileName>temp_release\</ObjectFileName>
       <Optimization>MaxSpeed</Optimization>
       <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_NO_DEBUG;QT_CHARTS_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_XML_LIB;QT_CORE_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
@@ -76,7 +78,7 @@
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>D:\Qt\5.8\msvc2015_64\lib\qtmain.lib;shell32.lib;D:\Qt\5.8\msvc2015_64\lib\Qt5Charts.lib;D:\Qt\5.8\msvc2015_64\lib\Qt5Widgets.lib;D:\Qt\5.8\msvc2015_64\lib\Qt5Gui.lib;D:\Qt\5.8\msvc2015_64\lib\Qt5Xml.lib;D:\Qt\5.8\msvc2015_64\lib\Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>D:\Qt\5.8\msvc2015_64\lib\qtmain.lib;shell32.lib;D:\PostGreSQL\lib\libpq.lib;D:\Qt\5.8\msvc2015_64\lib\Qt5Charts.lib;D:\Qt\5.8\msvc2015_64\lib\Qt5Widgets.lib;D:\Qt\5.8\msvc2015_64\lib\Qt5Gui.lib;D:\Qt\5.8\msvc2015_64\lib\Qt5Xml.lib;D:\Qt\5.8\msvc2015_64\lib\Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>D:\Qt\5.8\msvc2015_64\lib;C:\utils\my_sql\my_sql\lib;C:\utils\postgresql\pgsql\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
@@ -96,17 +98,21 @@
     <ResourceCompile>
       <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_NO_DEBUG;QT_CHARTS_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_XML_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>call PostBuildCopy.bat</Command>
+      <Message>call PostBuildCopy.bat</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.;x64\debug;D:\Qt\5.8\msvc2015_64\include;D:\Qt\5.8\msvc2015_64\include\QtCharts;D:\Qt\5.8\msvc2015_64\include\QtWidgets;D:\Qt\5.8\msvc2015_64\include\QtGui;D:\Qt\5.8\msvc2015_64\include\QtANGLE;D:\Qt\5.8\msvc2015_64\include\QtXml;D:\Qt\5.8\msvc2015_64\include\QtCore;x64\debug;D:\Qt\5.8\msvc2015_64\mkspecs\win32-msvc2015;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;D:\PostGreSQL\include;temp_debug;D:\Qt\5.8\msvc2015_64\include;D:\Qt\5.8\msvc2015_64\include\QtCharts;D:\Qt\5.8\msvc2015_64\include\QtWidgets;D:\Qt\5.8\msvc2015_64\include\QtGui;D:\Qt\5.8\msvc2015_64\include\QtANGLE;D:\Qt\5.8\msvc2015_64\include\QtXml;D:\Qt\5.8\msvc2015_64\include\QtCore;temp_debug;D:\Qt\5.8\msvc2015_64\mkspecs\win32-msvc2015;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:strictStrings -Zc:throwingNew -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
-      <AssemblerListingLocation>x64\debug\</AssemblerListingLocation>
+      <AssemblerListingLocation>temp_debug\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
-      <ObjectFileName>x64\debug\</ObjectFileName>
+      <ObjectFileName>temp_debug\</ObjectFileName>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_CHARTS_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_XML_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
@@ -117,7 +123,7 @@
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>D:\Qt\5.8\msvc2015_64\lib\qtmaind.lib;shell32.lib;D:\Qt\5.8\msvc2015_64\lib\Qt5Chartsd.lib;D:\Qt\5.8\msvc2015_64\lib\Qt5Widgetsd.lib;D:\Qt\5.8\msvc2015_64\lib\Qt5Guid.lib;D:\Qt\5.8\msvc2015_64\lib\Qt5Xmld.lib;D:\Qt\5.8\msvc2015_64\lib\Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>D:\Qt\5.8\msvc2015_64\lib\qtmaind.lib;shell32.lib;D:\PostGreSQL\lib\libpq.lib;D:\Qt\5.8\msvc2015_64\lib\Qt5Chartsd.lib;D:\Qt\5.8\msvc2015_64\lib\Qt5Widgetsd.lib;D:\Qt\5.8\msvc2015_64\lib\Qt5Guid.lib;D:\Qt\5.8\msvc2015_64\lib\Qt5Xmld.lib;D:\Qt\5.8\msvc2015_64\lib\Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>D:\Qt\5.8\msvc2015_64\lib;C:\utils\my_sql\my_sql\lib;C:\utils\postgresql\pgsql\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
@@ -136,6 +142,10 @@
     <ResourceCompile>
       <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;WIN64;QT_CHARTS_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_XML_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>call PostBuildCopy.bat</Command>
+      <Message>call PostBuildCopy.bat</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\App\Central\CentralContext.cpp" />
@@ -186,7 +196,6 @@
     <ClCompile Include="src\Framework\Controller\Controller.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Framework\Entity\ChartView.cpp" />
     <ClCompile Include="src\Framework\Entity\Context.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +208,9 @@
     <ClCompile Include="src\Framework\Manager\ContextManagerXml.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Framework\Manager\DbManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="src\Framework\Manager\Function2DManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +220,12 @@
     <ClCompile Include="src\Framework\Manager\Manager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Framework\Manager\PostGreDbManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Framework\Viewer\ChartView.cpp" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="src\Framework\Viewer\Viewer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -215,38 +233,38 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="src\App\Central\CentralController.h">
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\App\Central\CentralController.h;x64\release\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./x64/release//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/x64/release -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Central\CentralController.h -o x64\release\moc_CentralController.cpp</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\App\Central\CentralController.h;temp_release\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./temp_release//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -ID:/PostGreSQL/include -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/temp_release -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Central\CentralController.h -o temp_release\moc_CentralController.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC src/App/Central/CentralController.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">x64\release\moc_CentralController.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\App\Central\CentralController.h;x64\debug\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./x64/debug//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/x64/debug -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Central\CentralController.h -o x64\debug\moc_CentralController.cpp</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp_release\moc_CentralController.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\App\Central\CentralController.h;temp_debug\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./temp_debug//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -ID:/PostGreSQL/include -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/temp_debug -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Central\CentralController.h -o temp_debug\moc_CentralController.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC src/App/Central/CentralController.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\debug\moc_CentralController.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp_debug\moc_CentralController.cpp;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="src\App\Central\CentralManager.h">
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\App\Central\CentralManager.h;x64\release\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./x64/release//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/x64/release -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Central\CentralManager.h -o x64\release\moc_CentralManager.cpp</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\App\Central\CentralManager.h;temp_release\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./temp_release//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -ID:/PostGreSQL/include -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/temp_release -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Central\CentralManager.h -o temp_release\moc_CentralManager.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC src/App/Central/CentralManager.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">x64\release\moc_CentralManager.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\App\Central\CentralManager.h;x64\debug\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./x64/debug//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/x64/debug -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Central\CentralManager.h -o x64\debug\moc_CentralManager.cpp</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp_release\moc_CentralManager.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\App\Central\CentralManager.h;temp_debug\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./temp_debug//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -ID:/PostGreSQL/include -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/temp_debug -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Central\CentralManager.h -o temp_debug\moc_CentralManager.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC src/App/Central/CentralManager.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\debug\moc_CentralManager.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp_debug\moc_CentralManager.cpp;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="src\App\Central\CentralView.h">
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\App\Central\CentralView.h;x64\release\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./x64/release//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/x64/release -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Central\CentralView.h -o x64\release\moc_CentralView.cpp</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\App\Central\CentralView.h;temp_release\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./temp_release//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -ID:/PostGreSQL/include -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/temp_release -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Central\CentralView.h -o temp_release\moc_CentralView.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC src/App/Central/CentralView.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">x64\release\moc_CentralView.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\App\Central\CentralView.h;x64\debug\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./x64/debug//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/x64/debug -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Central\CentralView.h -o x64\debug\moc_CentralView.cpp</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp_release\moc_CentralView.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\App\Central\CentralView.h;temp_debug\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./temp_debug//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -ID:/PostGreSQL/include -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/temp_debug -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Central\CentralView.h -o temp_debug\moc_CentralView.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC src/App/Central/CentralView.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\debug\moc_CentralView.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp_debug\moc_CentralView.cpp;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -254,50 +272,50 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="src\App\Dock\DockController.h">
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\App\Dock\DockController.h;x64\release\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./x64/release//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/x64/release -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Dock\DockController.h -o x64\release\moc_DockController.cpp</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\App\Dock\DockController.h;temp_release\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./temp_release//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -ID:/PostGreSQL/include -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/temp_release -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Dock\DockController.h -o temp_release\moc_DockController.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC src/App/Dock/DockController.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">x64\release\moc_DockController.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\App\Dock\DockController.h;x64\debug\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./x64/debug//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/x64/debug -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Dock\DockController.h -o x64\debug\moc_DockController.cpp</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp_release\moc_DockController.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\App\Dock\DockController.h;temp_debug\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./temp_debug//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -ID:/PostGreSQL/include -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/temp_debug -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Dock\DockController.h -o temp_debug\moc_DockController.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC src/App/Dock/DockController.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\debug\moc_DockController.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp_debug\moc_DockController.cpp;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="src\App\Dock\DockView.h">
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\App\Dock\DockView.h;x64\release\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./x64/release//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/x64/release -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Dock\DockView.h -o x64\release\moc_DockView.cpp</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\App\Dock\DockView.h;temp_release\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./temp_release//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -ID:/PostGreSQL/include -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/temp_release -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Dock\DockView.h -o temp_release\moc_DockView.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC src/App/Dock/DockView.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">x64\release\moc_DockView.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\App\Dock\DockView.h;x64\debug\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./x64/debug//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/x64/debug -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Dock\DockView.h -o x64\debug\moc_DockView.cpp</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp_release\moc_DockView.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\App\Dock\DockView.h;temp_debug\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./temp_debug//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -ID:/PostGreSQL/include -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/temp_debug -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Dock\DockView.h -o temp_debug\moc_DockView.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC src/App/Dock/DockView.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\debug\moc_DockView.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp_debug\moc_DockView.cpp;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="src\App\Menu\MenuController.h">
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\App\Menu\MenuController.h;x64\release\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./x64/release//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/x64/release -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Menu\MenuController.h -o x64\release\moc_MenuController.cpp</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\App\Menu\MenuController.h;temp_release\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./temp_release//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -ID:/PostGreSQL/include -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/temp_release -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Menu\MenuController.h -o temp_release\moc_MenuController.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC src/App/Menu/MenuController.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">x64\release\moc_MenuController.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\App\Menu\MenuController.h;x64\debug\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./x64/debug//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/x64/debug -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Menu\MenuController.h -o x64\debug\moc_MenuController.cpp</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp_release\moc_MenuController.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\App\Menu\MenuController.h;temp_debug\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./temp_debug//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -ID:/PostGreSQL/include -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/temp_debug -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Menu\MenuController.h -o temp_debug\moc_MenuController.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC src/App/Menu/MenuController.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\debug\moc_MenuController.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp_debug\moc_MenuController.cpp;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="src\App\Menu\MenuView.h">
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\App\Menu\MenuView.h;x64\release\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./x64/release//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/x64/release -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Menu\MenuView.h -o x64\release\moc_MenuView.cpp</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\App\Menu\MenuView.h;temp_release\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./temp_release//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -ID:/PostGreSQL/include -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/temp_release -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Menu\MenuView.h -o temp_release\moc_MenuView.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC src/App/Menu/MenuView.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">x64\release\moc_MenuView.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\App\Menu\MenuView.h;x64\debug\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./x64/debug//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/x64/debug -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Menu\MenuView.h -o x64\debug\moc_MenuView.cpp</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp_release\moc_MenuView.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\App\Menu\MenuView.h;temp_debug\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./temp_debug//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -ID:/PostGreSQL/include -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/temp_debug -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Menu\MenuView.h -o temp_debug\moc_MenuView.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC src/App/Menu/MenuView.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\debug\moc_MenuView.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp_debug\moc_MenuView.cpp;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -305,38 +323,38 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="src\App\Toolbar\ToolbarController.h">
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\App\Toolbar\ToolbarController.h;x64\release\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./x64/release//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/x64/release -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Toolbar\ToolbarController.h -o x64\release\moc_ToolbarController.cpp</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\App\Toolbar\ToolbarController.h;temp_release\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./temp_release//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -ID:/PostGreSQL/include -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/temp_release -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Toolbar\ToolbarController.h -o temp_release\moc_ToolbarController.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC src/App/Toolbar/ToolbarController.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">x64\release\moc_ToolbarController.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\App\Toolbar\ToolbarController.h;x64\debug\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./x64/debug//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/x64/debug -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Toolbar\ToolbarController.h -o x64\debug\moc_ToolbarController.cpp</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp_release\moc_ToolbarController.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\App\Toolbar\ToolbarController.h;temp_debug\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./temp_debug//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -ID:/PostGreSQL/include -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/temp_debug -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Toolbar\ToolbarController.h -o temp_debug\moc_ToolbarController.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC src/App/Toolbar/ToolbarController.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\debug\moc_ToolbarController.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp_debug\moc_ToolbarController.cpp;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="src\App\Toolbar\ToolbarView.h">
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\App\Toolbar\ToolbarView.h;x64\release\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./x64/release//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/x64/release -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Toolbar\ToolbarView.h -o x64\release\moc_ToolbarView.cpp</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\App\Toolbar\ToolbarView.h;temp_release\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./temp_release//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -ID:/PostGreSQL/include -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/temp_release -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Toolbar\ToolbarView.h -o temp_release\moc_ToolbarView.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC src/App/Toolbar/ToolbarView.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">x64\release\moc_ToolbarView.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\App\Toolbar\ToolbarView.h;x64\debug\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./x64/debug//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/x64/debug -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Toolbar\ToolbarView.h -o x64\debug\moc_ToolbarView.cpp</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp_release\moc_ToolbarView.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\App\Toolbar\ToolbarView.h;temp_debug\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./temp_debug//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -ID:/PostGreSQL/include -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/temp_debug -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\Toolbar\ToolbarView.h -o temp_debug\moc_ToolbarView.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC src/App/Toolbar/ToolbarView.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\debug\moc_ToolbarView.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp_debug\moc_ToolbarView.cpp;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="src\App\MainController.h">
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\App\MainController.h;x64\release\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./x64/release//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/x64/release -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\MainController.h -o x64\release\moc_MainController.cpp</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">src\App\MainController.h;temp_release\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./temp_release//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -ID:/PostGreSQL/include -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/temp_release -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\MainController.h -o temp_release\moc_MainController.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MOC src/App/MainController.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">x64\release\moc_MainController.cpp;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\App\MainController.h;x64\debug\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./x64/debug//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/x64/debug -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\MainController.h -o x64\debug\moc_MainController.cpp</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp_release\moc_MainController.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">src\App\MainController.h;temp_debug\moc_predefs.h;D:\Qt\5.8\msvc2015_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\moc.exe  -DUNICODE -DWIN32 -DWIN64 -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include ./temp_debug//moc_predefs.h -ID:/Qt/5.8/msvc2015_64/mkspecs/win32-msvc2015 -IC:/Users/jorda/Documents/Travail/Perso/Code/CV -ID:/PostGreSQL/include -IC:/Users/jorda/Documents/Travail/Perso/Code/CV/temp_debug -ID:/Qt/5.8/msvc2015_64/include -ID:/Qt/5.8/msvc2015_64/include/QtCharts -ID:/Qt/5.8/msvc2015_64/include/QtWidgets -ID:/Qt/5.8/msvc2015_64/include/QtGui -ID:/Qt/5.8/msvc2015_64/include/QtANGLE -ID:/Qt/5.8/msvc2015_64/include/QtXml -ID:/Qt/5.8/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" -I"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\shared" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\um" -I"C:\Program Files (x86)\Windows Kits\8.1\include\\winrt" src\App\MainController.h -o temp_debug\moc_MainController.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MOC src/App/MainController.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\debug\moc_MainController.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp_debug\moc_MainController.cpp;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -346,7 +364,6 @@
     <ClInclude Include="src\Framework\Controller\Controller.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Framework\Entity\ChartView.h" />
     <ClInclude Include="src\Framework\Entity\Context.h" />
   </ItemGroup>
   <ItemGroup>
@@ -359,6 +376,9 @@
     <ClInclude Include="src\Framework\Manager\ContextManagerXml.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Framework\Manager\DbManager.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="src\Framework\Manager\Function2DManager.h" />
   </ItemGroup>
   <ItemGroup>
@@ -368,135 +388,141 @@
     <ClInclude Include="src\Framework\Manager\Manager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Framework\Manager\PostGreDbManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Framework\Viewer\ChartView.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="src\Framework\Viewer\Viewer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\moc_CentralController.cpp">
+    <ClCompile Include="temp_debug\moc_CentralController.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\moc_CentralManager.cpp">
+    <ClCompile Include="temp_debug\moc_CentralManager.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\moc_CentralView.cpp">
+    <ClCompile Include="temp_debug\moc_CentralView.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\moc_DockController.cpp">
+    <ClCompile Include="temp_debug\moc_DockController.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\moc_DockView.cpp">
+    <ClCompile Include="temp_debug\moc_DockView.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\moc_MainController.cpp">
+    <ClCompile Include="temp_debug\moc_MainController.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\moc_MenuController.cpp">
+    <ClCompile Include="temp_debug\moc_MenuController.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\moc_MenuView.cpp">
+    <ClCompile Include="temp_debug\moc_MenuView.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\moc_ToolbarController.cpp">
+    <ClCompile Include="temp_debug\moc_ToolbarController.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\moc_ToolbarView.cpp">
+    <ClCompile Include="temp_debug\moc_ToolbarView.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="x64\debug\moc_predefs.h.cbt">
+    <CustomBuild Include="temp_debug\moc_predefs.h.cbt">
       <FileType>Document</FileType>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">cl -BxD:\Qt\5.8\msvc2015_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:strictStrings -Zc:throwingNew -Zi -MDd -GR -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E -Za D:\Qt\5.8\msvc2015_64\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;x64\debug\moc_predefs.h</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">cl -BxD:\Qt\5.8\msvc2015_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:strictStrings -Zc:throwingNew -Zi -MDd -GR -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E -Za D:\Qt\5.8\msvc2015_64\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;temp_debug\moc_predefs.h</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generate moc_predefs.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\debug\moc_predefs.h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp_debug\moc_predefs.h;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\qrc_CV.cpp">
+    <ClCompile Include="temp_debug\qrc_CV.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\moc_CentralController.cpp">
+    <ClCompile Include="temp_release\moc_CentralController.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\moc_CentralManager.cpp">
+    <ClCompile Include="temp_release\moc_CentralManager.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\moc_CentralView.cpp">
+    <ClCompile Include="temp_release\moc_CentralView.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\moc_DockController.cpp">
+    <ClCompile Include="temp_release\moc_DockController.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\moc_DockView.cpp">
+    <ClCompile Include="temp_release\moc_DockView.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\moc_MainController.cpp">
+    <ClCompile Include="temp_release\moc_MainController.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\moc_MenuController.cpp">
+    <ClCompile Include="temp_release\moc_MenuController.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\moc_MenuView.cpp">
+    <ClCompile Include="temp_release\moc_MenuView.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\moc_ToolbarController.cpp">
+    <ClCompile Include="temp_release\moc_ToolbarController.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\moc_ToolbarView.cpp">
+    <ClCompile Include="temp_release\moc_ToolbarView.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="x64\release\moc_predefs.h.cbt">
+    <CustomBuild Include="temp_release\moc_predefs.h.cbt">
       <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cl -BxD:\Qt\5.8\msvc2015_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:strictStrings -Zc:throwingNew -O2 -MD -GR -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E -Za D:\Qt\5.8\msvc2015_64\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;x64\release\moc_predefs.h</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cl -BxD:\Qt\5.8\msvc2015_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:strictStrings -Zc:throwingNew -O2 -MD -GR -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E -Za D:\Qt\5.8\msvc2015_64\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;temp_release\moc_predefs.h</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generate moc_predefs.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">x64\release\moc_predefs.h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp_release\moc_predefs.h;%(Outputs)</Outputs>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\qrc_CV.cpp">
+    <ClCompile Include="temp_release\qrc_CV.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
@@ -504,13 +530,13 @@
     <CustomBuild Include="CV.qrc">
       <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CV.qrc;D:\Qt\5.8\msvc2015_64\bin\rcc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\rcc.exe -name CV CV.qrc -o x64\release\qrc_CV.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Qt\5.8\msvc2015_64\bin\rcc.exe -name CV CV.qrc -o temp_release\qrc_CV.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">RCC CV.qrc</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">x64\release\qrc_CV.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">temp_release\qrc_CV.cpp;%(Outputs)</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CV.qrc;D:\Qt\5.8\msvc2015_64\bin\rcc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\rcc.exe -name CV CV.qrc -o x64\debug\qrc_CV.cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Qt\5.8\msvc2015_64\bin\rcc.exe -name CV CV.qrc -o temp_debug\qrc_CV.cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">RCC CV.qrc</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\debug\qrc_CV.cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">temp_debug\qrc_CV.cpp;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

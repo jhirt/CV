@@ -4,16 +4,20 @@
 #include "..\..\Framework\Viewer\Viewer.h"
 
 #include <QObject>
-#include <QtWidgets\QDockWidget>
+//#include <QtWidgets\QDockWidget>
 
 using namespace Framework;
+
+class QDockWidget;
+class QPushButton;
+class QHBoxLayout;
 
 namespace App
 {
 	class DockController;
 	class MainViewer;
 
-	class DockView : public QObject, Viewer, QDockWidget
+	class DockView : public QObject, Viewer //, QDockWidget
 	{
 		Q_OBJECT;
 
@@ -22,6 +26,10 @@ namespace App
 
 	protected:
 		DockController* m_dockController;
+		QDockWidget* m_topDockWidget;
+		QWidget* m_container;
+		QHBoxLayout* m_layout;
+		QPushButton* m_changeFunctionColorButton;
 	};
 }
 #endif //DOCK_VIEW

@@ -1,0 +1,38 @@
+	/*
+	const char* conninfo = "user=postgres password=300601yd dbname=CVdb";
+
+	// Make a connection to the database
+	PGconn* conn = PQconnectdb(conninfo);
+
+	// Check to see that the backend connection was successfully made
+	ConnStatusType connStatus = PQstatus(conn);
+
+	PGresult* res = PQexecParams(
+		conn,
+		"SELECT * FROM \"Test\"",
+		0,       // one param
+		NULL,    // let the backend deduce param type
+		NULL,
+		NULL,    // don't need param lengths since text
+		NULL,    // default to all text params
+		1);      // ask for binary results
+
+	ExecStatusType bla = PQresultStatus(res);
+
+	char* r = PQgetvalue(res, 0, 1);
+
+	const char* paramValues[2];
+	paramValues[0] = "l";
+	paramValues[1] = "m";
+	res = PQexecParams(
+		conn,
+		"INSERT INTO \"Test\" (\"Val1\", \"Val2\") VALUES ($1, $2)",
+		2,       // one param 
+		NULL,    // let the backend deduce param type
+		paramValues,
+		NULL,    // don't need param lengths since text 
+		NULL,    // default to all text params
+		1);      // ask for binary results
+
+	bla = PQresultStatus(res);
+	*/

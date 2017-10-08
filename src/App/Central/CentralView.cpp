@@ -1,6 +1,6 @@
 #include "CentralView.h"
 
-#include "..\..\Framework\Entity\ChartView.h"
+#include "..\..\Framework\Viewer\ChartView.h"
 
 #include "CentralController.h"
 #include "CentralManager.h"

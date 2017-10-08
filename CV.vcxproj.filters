@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Generated Files">
@@ -48,9 +48,6 @@
   <ItemGroup>
     <ClCompile Include="src\App\Central\CentralContext.cpp">
       <Filter>Source Files\src\App\Central</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Framework\Entity\ChartView.cpp">
-      <Filter>Source Files\src\Framework\Entity</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +167,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Framework\Manager\DbManager.cpp">
+      <Filter>Source Files\src\Framework\Manager</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="src\Framework\Manager\Function2DManager.cpp">
       <Filter>Source Files\src\Framework\Manager</Filter>
     </ClCompile>
@@ -185,7 +187,17 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Framework\Manager\PostGreDbManager.cpp">
+      <Filter>Source Files\src\Framework\Manager</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
     <Filter Include="Source Files\src\Framework\Viewer" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Framework\Viewer\ChartView.cpp">
+      <Filter>Source Files\src\Framework\Viewer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Framework\Viewer\Viewer.cpp">
@@ -204,9 +216,6 @@
   <ItemGroup>
     <ClInclude Include="src\App\Central\CentralContext.h">
       <Filter>Header Files\src\App\Central</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Framework\Entity\ChartView.h">
-      <Filter>Header Files\src\Framework\Entity</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -321,6 +330,11 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Framework\Manager\DbManager.h">
+      <Filter>Header Files\src\Framework\Manager</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="src\Framework\Manager\Function2DManager.h">
       <Filter>Header Files\src\Framework\Manager</Filter>
     </ClInclude>
@@ -336,7 +350,17 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Framework\Manager\PostGreDbManager.h">
+      <Filter>Header Files\src\Framework\Manager</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
     <Filter Include="Header Files\src\Framework\Viewer" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Framework\Viewer\ChartView.h">
+      <Filter>Header Files\src\Framework\Viewer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Framework\Viewer\Viewer.h">
@@ -344,132 +368,129 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Generated Files\x64" />
+    <Filter Include="Generated Files\temp_debug" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Generated Files\x64\debug" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="x64\debug\moc_CentralController.cpp">
-      <Filter>Generated Files\x64\debug</Filter>
+    <ClCompile Include="temp_debug\moc_CentralController.cpp">
+      <Filter>Generated Files\temp_debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\moc_CentralManager.cpp">
-      <Filter>Generated Files\x64\debug</Filter>
+    <ClCompile Include="temp_debug\moc_CentralManager.cpp">
+      <Filter>Generated Files\temp_debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\moc_CentralView.cpp">
-      <Filter>Generated Files\x64\debug</Filter>
+    <ClCompile Include="temp_debug\moc_CentralView.cpp">
+      <Filter>Generated Files\temp_debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\moc_DockController.cpp">
-      <Filter>Generated Files\x64\debug</Filter>
+    <ClCompile Include="temp_debug\moc_DockController.cpp">
+      <Filter>Generated Files\temp_debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\moc_DockView.cpp">
-      <Filter>Generated Files\x64\debug</Filter>
+    <ClCompile Include="temp_debug\moc_DockView.cpp">
+      <Filter>Generated Files\temp_debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\moc_MainController.cpp">
-      <Filter>Generated Files\x64\debug</Filter>
+    <ClCompile Include="temp_debug\moc_MainController.cpp">
+      <Filter>Generated Files\temp_debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\moc_MenuController.cpp">
-      <Filter>Generated Files\x64\debug</Filter>
+    <ClCompile Include="temp_debug\moc_MenuController.cpp">
+      <Filter>Generated Files\temp_debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\moc_MenuView.cpp">
-      <Filter>Generated Files\x64\debug</Filter>
+    <ClCompile Include="temp_debug\moc_MenuView.cpp">
+      <Filter>Generated Files\temp_debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\moc_ToolbarController.cpp">
-      <Filter>Generated Files\x64\debug</Filter>
+    <ClCompile Include="temp_debug\moc_ToolbarController.cpp">
+      <Filter>Generated Files\temp_debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\moc_ToolbarView.cpp">
-      <Filter>Generated Files\x64\debug</Filter>
+    <ClCompile Include="temp_debug\moc_ToolbarView.cpp">
+      <Filter>Generated Files\temp_debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="x64\debug\moc_predefs.h.cbt">
-      <Filter>Generated Files\x64\debug</Filter>
+    <CustomBuild Include="temp_debug\moc_predefs.h.cbt">
+      <Filter>Generated Files\temp_debug</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\debug\qrc_CV.cpp">
-      <Filter>Generated Files\x64\debug</Filter>
+    <ClCompile Include="temp_debug\qrc_CV.cpp">
+      <Filter>Generated Files\temp_debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Generated Files\x64\release" />
+    <Filter Include="Generated Files\temp_release" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\moc_CentralController.cpp">
-      <Filter>Generated Files\x64\release</Filter>
+    <ClCompile Include="temp_release\moc_CentralController.cpp">
+      <Filter>Generated Files\temp_release</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\moc_CentralManager.cpp">
-      <Filter>Generated Files\x64\release</Filter>
+    <ClCompile Include="temp_release\moc_CentralManager.cpp">
+      <Filter>Generated Files\temp_release</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\moc_CentralView.cpp">
-      <Filter>Generated Files\x64\release</Filter>
+    <ClCompile Include="temp_release\moc_CentralView.cpp">
+      <Filter>Generated Files\temp_release</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\moc_DockController.cpp">
-      <Filter>Generated Files\x64\release</Filter>
+    <ClCompile Include="temp_release\moc_DockController.cpp">
+      <Filter>Generated Files\temp_release</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\moc_DockView.cpp">
-      <Filter>Generated Files\x64\release</Filter>
+    <ClCompile Include="temp_release\moc_DockView.cpp">
+      <Filter>Generated Files\temp_release</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\moc_MainController.cpp">
-      <Filter>Generated Files\x64\release</Filter>
+    <ClCompile Include="temp_release\moc_MainController.cpp">
+      <Filter>Generated Files\temp_release</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\moc_MenuController.cpp">
-      <Filter>Generated Files\x64\release</Filter>
+    <ClCompile Include="temp_release\moc_MenuController.cpp">
+      <Filter>Generated Files\temp_release</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\moc_MenuView.cpp">
-      <Filter>Generated Files\x64\release</Filter>
+    <ClCompile Include="temp_release\moc_MenuView.cpp">
+      <Filter>Generated Files\temp_release</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\moc_ToolbarController.cpp">
-      <Filter>Generated Files\x64\release</Filter>
+    <ClCompile Include="temp_release\moc_ToolbarController.cpp">
+      <Filter>Generated Files\temp_release</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\moc_ToolbarView.cpp">
-      <Filter>Generated Files\x64\release</Filter>
+    <ClCompile Include="temp_release\moc_ToolbarView.cpp">
+      <Filter>Generated Files\temp_release</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="x64\release\moc_predefs.h.cbt">
-      <Filter>Generated Files\x64\release</Filter>
+    <CustomBuild Include="temp_release\moc_predefs.h.cbt">
+      <Filter>Generated Files\temp_release</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\release\qrc_CV.cpp">
-      <Filter>Generated Files\x64\release</Filter>
+    <ClCompile Include="temp_release\qrc_CV.cpp">
+      <Filter>Generated Files\temp_release</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

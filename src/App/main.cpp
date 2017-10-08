@@ -1,14 +1,9 @@
 
 #include <QtWidgets\QApplication>
-/*
-#include <QtWidgets\QMainWindow>
-#include <QtWidgets\QToolBar>
-#include <QtWidgets\QDockWidget>
-#include <QtWidgets\QMenu>
-#include <QtWidgets\QMenuBar>
-*/
 
 #include "MainController.h"
+
+#include <libpq-fe.h>
 
 using namespace App;
 
@@ -19,15 +14,44 @@ int main(int argc, char** argv)
 	MainController* mainController = new MainController();
 
 	/*
-	QMainWindow* mainWindow = new QMainWindow();
+	const char* conninfo = "user=postgres password=300601yd dbname=CVdb";
 
-	QToolBar* toolbar = new QToolBar(mainWindow);
+	// Make a connection to the database
+	PGconn* conn = PQconnectdb(conninfo);
 
-	QToolBar* dock = new QToolBar(mainWindow);
+	// Check to see that the backend connection was successfully made
+	ConnStatusType connStatus = PQstatus(conn);
 
-	QMenu *menuFichier = mainWindow->menuBar()->addMenu("&File");
+	PGresult* res = PQexecParams(
+		conn,
+		"SELECT * FROM \"Test\"",
+		0,       // one param
+		NULL,    // let the backend deduce param type
+		NULL,
+		NULL,    // don't need param lengths since text
+		NULL,    // default to all text params
+		1);      // ask for binary results
 
-	mainWindow->show();
+	ExecStatusType bla = PQresultStatus(res);
+
+	char* rowsCount = PQcmdTuples(res);
+
+	char* r = PQgetvalue(res, 0, 1);
+
+	const char* paramValues[2];
+	paramValues[0] = "l";
+	paramValues[1] = "m";
+	res = PQexecParams(
+		conn,
+		"INSERT INTO \"Test\" (\"Val1\", \"Val2\") VALUES ($1, $2)",
+		2,       // one param 
+		NULL,    // let the backend deduce param type
+		paramValues,
+		NULL,    // don't need param lengths since text 
+		NULL,    // default to all text params
+		1);      // ask for binary results
+
+	bla = PQresultStatus(res);
 	*/
 
 	return app.exec();
